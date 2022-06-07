@@ -1,6 +1,8 @@
 package test;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.*;
 
@@ -25,5 +27,6 @@ public class PostAnAdWithoutFillDataTest extends TestBase{
 
         CompleteYourDataPage completeYourDataPage = new CompleteYourDataPage(driver);
         completeYourDataPage.clickNextWithoutFillData(shortWait);
+        Assert.assertTrue(driver.findElement(By.xpath("/hierarchy/android.widget.Toast")).getText().equalsIgnoreCase("Kindly Fill all the required information!"));
     }
 }
